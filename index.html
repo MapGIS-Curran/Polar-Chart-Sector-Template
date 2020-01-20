@@ -1,17 +1,87 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>Polar Chart Sector</title>
   <!-- Load plotly.js into the DOM -->
   <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <!--
+<script type = "text/javascript" src = "filename.js" ></script>
+-->
 </head>
-
 <body>
-  <div id='myDiv'>
-    <!-- Plotly chart will be drawn inside this DIV -->
-  </div>
+  <!-- Plotly chart will be drawn inside this DIV -->
+  <div id='myDiv'></div>
+  <script>
+    /* JAVASCRIPT CODE GOES HERE */
+    var data = [{
+        type: "scatterpolar",
+        mode: "lines+markers",
+        r: [1, 2, 3, 4, 5],
+        theta: [0, 90, 180, 360, 0],
+        line: {
+          color: "#ff66ab"
+        },
+        marker: {
+          color: "#8090c7",
+          symbol: "square",
+          size: 8
+        },
+        subplot: "polar"
+      },
+      {
+        type: "scatterpolar",
+        mode: "lines+markers",
+        r: [1, 2, 3, 4, 5],
+        theta: [0, 90, 180, 360, 0],
+        line: {
+          color: "#ff66ab"
+        },
+        marker: {
+          color: "#8090c7",
+          symbol: "square",
+          size: 8
+        },
+        subplot: "polar2"
+      }
+    ]
+    var layout = {
+      showlegend: false,
+      polar: {
+        sector: [145, 215],
+        domain: {
+          x: [0, 0.4],
+          y: [0, 1]
+        },
+        radialaxis: {
+          tickfont: {
+            size: 8
+          }
+        },
+        angularaxis: {
+          tickfont: {
+            size: 8
+          }
+        }
+      },
+      polar2: {
+        domain: {
+          x: [0.6, 1],
+          y: [0, 1]
+        },
+        radialaxis: {
+          tickfont: {
+            size: 8
+          }
+        },
+        angularaxis: {
+          tickfont: {
+            size: 8
+          }
+        }
+      }
+    }
+    Plotly.plot('myDiv', data, layout)
+  </script>
 </body>
-
 </html>
